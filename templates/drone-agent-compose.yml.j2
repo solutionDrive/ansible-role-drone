@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  drone-agent:
+    image: {{ drone_agent_image }}:{{ drone_version }}
+    restart: always
+    env_file:
+      - "/etc/drone/agent/drone-agent.config"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    stop_signal: SIGINT

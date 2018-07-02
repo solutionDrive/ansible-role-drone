@@ -1,0 +1,55 @@
+---
+- name: verify that required parameters are set for drone master setup
+  fail: msg="Variable '{{ item }}' is not defined for drone master setup"
+  when: item not in vars
+  with_items:
+     - drone_admin
+     - drone_vcs
+     - drone_server_url
+  tags: [configuration]
+
+- name: add config folder for drone-server
+  file:
+    path: "/etc/drone/server"
+    state: "directory"
+
+- name: "Check status of sqlite directory '{{ drone_sqlite_host_path }}'"
+  stat:
+    path: "{{ drone_sqlite_host_path }}"
+  register: sqlite_folder
+
+- name: create sqlite directory for drone
+  file:
+    path: "{{ drone_sqlite_host_path }}"
+    state: "directory"
+  when: drone_database_driver == "sqlite3" and
+        (sqlite_folder.stat.exists == False or
+         sqlite_folder.stat.islnk is not defined or
+         sqlite_folder.stat.islnk == False)
+
+- name: create config file for drone server
+  template:
+    src: "drone-server.config.j2"
+    dest: "/etc/drone/server/drone-server.config"
+  register: drone_server_config
+  tags: [configuration]
+
+- name: create docker-compose file for drone server
+  template:
+    src: "drone-server-compose.yml.j2"
+    dest: "/etc/drone/server/docker-compose.yml"
+  register: drone_server_compose
+
+- name: stop drone server instance
+  docker_service:
+    project_src: /etc/drone/server
+    state: absent
+  when: (drone_server_compose is defined and drone_server_compose.changed) or (drone_server_config is defined and drone_server_config.changed)
+  tags: [configuration]
+
+- name: start drone server instance
+  docker_service:
+    project_src: /etc/drone/server
+    state: present
+    build: no
+  tags: [configuration]

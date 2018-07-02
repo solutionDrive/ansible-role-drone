@@ -1,0 +1,33 @@
+DRONE_ADMIN={{ drone_admin }}
+DRONE_SECRET={{ drone_secret }}
+DRONE_HOST={{ drone_server_url }}
+DRONE_OPEN={{ drone_open }}
+{% if drone_database_driver is defined %}
+DATABASE_DRIVER={{ drone_database_driver }}
+{% endif %}
+{% if drone_database_config is defined %}
+DATABASE_CONFIG={{ drone_database_config }}
+{% endif %}
+{% if drone_orgs is defined %}
+DRONE_ORGS={{ drone_orgs }}
+{% endif %}
+{% if drone_debug is defined %}
+DRONE_DEBUG={{ drone_debug }}
+{% endif %}
+{% if drone_server_cert is defined %}
+DRONE_SERVER_CERT={{ drone_server_cert }}
+{% endif %}
+{% if drone_server_key is defined %}
+DRONE_SERVER_KEY={{ drone_server_key }}
+{% endif %}
+{% if drone_yaml is defined %}
+DRONE_YAML={{ drone_yaml }}
+{% endif %}
+{% if drone_cache_tty is defined %}
+DRONE_CACHE_TTY={{ drone_cache_tty }}
+{% endif %}
+{% if drone_vcs == "bitbucket" %}
+{% include "remote_bitbucket.j2" %}
+{% elif drone_vcs == "github" %}
+{% include "remote_github.j2" %}
+{% endif %}

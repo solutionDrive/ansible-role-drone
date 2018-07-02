@@ -1,0 +1,6 @@
+---
+- include: setup.yml
+- include: drone-server.yml
+  when: drone_start_server == true
+- include: drone-agent.yml
+  when: drone_start_agent == true

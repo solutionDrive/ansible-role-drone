@@ -1,0 +1,22 @@
+galaxy_info:
+  author: Patrick Jahns <github@patrickjahns.de>
+  description: Ansible role to configure drone (server and agent)
+  company: solutionDrive GmbH
+  license: MIT
+
+  min_ansible_version: 2.3
+
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+
+  galaxy_tags:
+    - drone
+    - docker
+    - ci
+    - drone-ci
+    - droneci
+
+dependencies:
+  - { role: geerlingguy.docker }
