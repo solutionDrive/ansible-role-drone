@@ -1,0 +1,48 @@
+{%if drone_agent_server_url is defined %}
+DRONE_SERVER={{ drone_agent_server_url }}
+{% else %}
+DRONE_SERVER={{ drone_server_host }}:{{ drone_grpc_external_port }}
+{% endif %}
+DRONE_SECRET={{ drone_secret }}
+{% if drone_agent_debug is defined %}
+DRONE_DEBUG={{ drone_agent_debug }}
+{% endif %}
+{% if drone_agent_backoff is defined %}
+DRONE_BACKOFF={{ drone_agent_backoff }}
+{% endif %}
+{% if drone_agent_timeout is defined %}
+DRONE_TIMEOUT={{ drone_agent_timeout }}
+{% endif %}
+{% if drone_agent_max_logs is defined %}
+DRONE_MAX_LOGS={{ drone_agent_max_logs }}
+{% endif %}
+{% if drone_agent_plugin_pull is defined %}
+DRONE_PLUGIN_PULL={{ drone_agent_plugin_pull }}
+{% endif %}
+{% if drone_agent_plugin_privileged is defined %}
+DRONE_PLUGIN_PRIVILEGED={{ drone_agent_plugin_privileged }}
+{% endif %}
+{% if drone_agent_docker_host is defined %}
+DOCKER_HOST={{ drone_agent_docker_host }}
+{% endif %}
+{% if drone_agent_docker_tls_verify is defined %}
+DOCKER_TLS_VERIFY={{ drone_agent_docker_tls_verify }}
+{% endif %}
+{% if drone_agent_docker_cert_path is defined %}
+DOCKER_CERT_PATH={{ drone_agent_docker_cert_path }}
+{% endif %}
+{% if drone_agent_docker_max_procs is defined %}
+DOCKER_MAX_PROCS={{ drone_agent_docker_max_procs }}
+{% endif %}
+{% if drone_agent_docker_os is defined %}
+DOCKER_OS={{ drone_agent_docker_os }}
+{% endif %}
+{% if drone_agent_docker_arch is defined %}
+DOCKER_ARCH={{ drone_agent_docker_arch }}
+{% endif %}
+{% if drone_agent_http_proxy is defined %}
+HTTP_PROXY={{ drone_agent_http_proxy }}
+{% endif %}
+{% if drone_agent_https_proxy is defined %}
+HTTPS_PROXY={{ drone_agent_https_proxy }}
+{% endif %}

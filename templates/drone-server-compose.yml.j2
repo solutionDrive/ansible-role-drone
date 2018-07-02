@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  drone-server:
+    image: {{ drone_server_image }}:{{ drone_version }}
+{% if drone_database_driver == "sqlite3" %}
+    volumes:
+      - {{ drone_sqlite_host_path }}:/var/lib/drone/
+{% endif %}
+    restart: always
+    env_file:
+      - "/etc/drone/server/drone-server.config"
+    ports:
+      - {{drone_public_external_port}}:8000
+      - {{drone_grpc_external_port}}:9000
+    stop_signal: SIGINT

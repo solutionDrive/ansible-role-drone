@@ -1,0 +1,27 @@
+DRONE_GITHUB=True
+DRONE_GITHUB_CLIENT={{ drone_github_client }}
+DRONE_GITHUB_SECRET={{ drone_github_secret }}
+{% if drone_github_url is defined %}
+DRONE_GITHUB_URL={{ drone_github_url }}
+{% endif %}
+{% if drone_github_scope is defined %}
+DRONE_GITHUB_SCOPE={{ drone_github_scope }}
+{% endif %}
+{% if drone_github_username is defined %}
+DRONE_GITHUB_GIT_USERNAME={{ drone_github_username }}
+{% endif %}
+{% if drone_github_password is defined %}
+DRONE_GITHUB_GIT_PASSWORD={{ drone_github_password }}
+{% endif %}
+{% if drone_github_private_mode is defined %}
+DRONE_GITHUB_PRIVATE_MODE={{ drone_github_private_mode }}
+{% endif %}
+{% if drone_github_merge_ref is defined %}
+DRONE_GITHUB_MERGE_REF={{ drone_github_merge_ref }}
+{% endif %}
+{% if drone_github_context is defined %}
+DRONE_GITHUB_CONTEXT={{ drone_github_context }}
+{% endif %}
+{% if drone_github_skip_verify is defined %}
+DRONE_GITHUB_SKIP_VERIFY={{ drone_github_skip_verify }}
+{% endif %}

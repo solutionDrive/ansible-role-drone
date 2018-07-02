@@ -1,0 +1,15 @@
+---
+drone_server_image: "drone/drone"
+drone_agent_image: "drone/agent"
+drone_version: "latest"
+drone_start_server: true
+drone_start_agent: true
+drone_debug: false
+drone_open: true
+drone_sqlite_host_path: "/var/lib/drone"
+drone_database_driver: "sqlite3"
+drone_database_config: "/var/lib/drone/drone.sqlite"
+drone_agent_count: 1
+drone_agent_debug: false
+drone_grpc_external_port: 9000
+drone_public_external_port: 80
