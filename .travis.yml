@@ -8,7 +8,7 @@ env:
   - distro: debian9
   - distro: debian8
 
-script:
+before_script:
   # Check for correct eof newlines
   - wget -O ${PWD}/tests/check-eof-newline.sh https://gist.github.com/sd-lueckel/fd262b2570c270bf8695ed6bdd388727/raw/
   - chmod +x ${PWD}/tests/check-eof-newline.sh
@@ -24,6 +24,7 @@ script:
   - chmod +x ${PWD}/tests/check-trailing_whitespaces.sh
   - ${PWD}/tests/check-trailing_whitespaces.sh
 
+script:
   # Download test shim.
   - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
   - chmod +x ${PWD}/tests/test.sh
