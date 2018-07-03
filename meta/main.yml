@@ -7,9 +7,13 @@ galaxy_info:
   min_ansible_version: 2.3
 
   platforms:
-  - name: Ubuntu
-    versions:
-    - all
+    - name: Ubuntu
+      versions:
+        - bionic
+        - xenial
+    - name: Debian
+      versions:
+        - stretch
 
   galaxy_tags:
     - drone
