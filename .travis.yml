@@ -1,0 +1,35 @@
+---
+services: docker
+
+env:
+  - distro: ubuntu1804
+  - distro: ubuntu1604
+  - distro: ubuntu1404
+  - distro: debian9
+  - distro: debian8
+
+script:
+  # Check for correct eof newlines
+  - wget -O ${PWD}/tests/check-eof-newline.sh https://gist.github.com/sd-lueckel/fd262b2570c270bf8695ed6bdd388727/raw/
+  - chmod +x ${PWD}/tests/check-eof-newline.sh
+  - ${PWD}/tests/check-eof-newline.sh
+
+  # Check for line endings
+  - wget -O ${PWD}/tests/check-line-endings.sh https://gist.github.com/sd-lueckel/1114f569d0a60f3447b28cc7c82f8fd4/raw/
+  - chmod +x ${PWD}/tests/check-line-endings.sh
+  - ${PWD}/tests/check-line-endings.sh
+
+  # Check for trailing whitespaces
+  - wget -O ${PWD}/tests/check-trailing_whitespaces.sh https://gist.github.com/sd-lueckel/335ef1b6a9e996b384748a3e1cf15b61/raw/
+  - chmod +x ${PWD}/tests/check-trailing_whitespaces.sh
+  - ${PWD}/tests/check-trailing_whitespaces.sh
+
+  # Download test shim.
+  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
+  - chmod +x ${PWD}/tests/test.sh
+
+  # Run tests.
+  - ${PWD}/tests/test.sh
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
