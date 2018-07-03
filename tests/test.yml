@@ -1,6 +1,13 @@
 ---
 - hosts: all
 
+  vars:
+    drone_secret: "VeryStrongAndSecureSecret"
+    drone_admin: "ItsMeTheAdmin"
+    drone_vcs: "github"
+    drone_server_url: "https://drone.test"
+    drone_server_host: "drone.test"
+
   pre_tasks:
     - name: Update apt cache.
       apt: update_cache=yes cache_valid_time=600
