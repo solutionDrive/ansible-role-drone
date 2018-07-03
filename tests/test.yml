@@ -5,6 +5,8 @@
     drone_secret: "VeryStrongAndSecureSecret"
     drone_admin: "ItsMeTheAdmin"
     drone_vcs: "github"
+    drone_github_client: "LetMeInGithub"
+    drone_github_secret: "NOOOOOOOW"
     drone_server_url: "https://drone.test"
     drone_server_host: "drone.test"
 
