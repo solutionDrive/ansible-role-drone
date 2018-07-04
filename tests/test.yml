@@ -1,0 +1,24 @@
+---
+- hosts: all
+
+  vars:
+    drone_secret: "VeryStrongAndSecureSecret"
+    drone_admin: "ItsMeTheAdmin"
+    drone_vcs: "github"
+    drone_github_client: "LetMeInGithub"
+    drone_github_secret: "NOOOOOOOW"
+    drone_server_url: "https://drone.test"
+    drone_server_host: "drone.test"
+    pip_install_packages:
+      - name: docker-compose #required for deploying docker-compose files
+        version: 1.15.0 #there is a bug with 1.16.0 version https://github.com/ansible/ansible/issues/29498 / https://github.com/docker/compose/issues/5156
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: update_cache=yes cache_valid_time=600
+      when: ansible_os_family == 'Debian'
+
+  roles:
+    - geerlingguy.pip
+    - geerlingguy.docker
+    - role_under_test
