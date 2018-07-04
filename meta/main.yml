@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: drone
   author: Patrick Jahns <github@patrickjahns.de>
   description: Ansible role to configure drone (server and agent)
   company: solutionDrive GmbH
