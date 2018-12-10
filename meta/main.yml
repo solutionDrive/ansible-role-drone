@@ -24,5 +24,4 @@ galaxy_info:
     - droneci
 
 dependencies:
-  - { role: geerlingguy.pip }
   - { role: geerlingguy.docker }

@@ -10,8 +10,7 @@
     drone_server_url: "https://drone.test"
     drone_server_host: "drone.test"
     pip_install_packages:
-      - name: docker-compose #required for deploying docker-compose files
-        version: 1.15.0 #there is a bug with 1.16.0 version https://github.com/ansible/ansible/issues/29498 / https://github.com/docker/compose/issues/5156
+      - docker-compose
 
   pre_tasks:
     - name: Update apt cache.
@@ -19,6 +18,7 @@
       when: ansible_os_family == 'Debian'
 
   roles:
+    # Here pip is needed because there is no base image with pip already installed
     - geerlingguy.pip
     - geerlingguy.docker
     - role_under_test
