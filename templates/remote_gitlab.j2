@@ -1,0 +1,12 @@
+DRONE_GITLAB=true
+DRONE_GITLAB_URL={{ drone_gitlab_url }}
+DRONE_GITLAB_CLIENT={{ drone_gitlab_client }}
+DRONE_GITLAB_SECRET={{ drone_gitlab_secret }}
+{% if drone_gitlab_git_username is defined %}
+DRONE_GITLAB_GIT_USERNAME={{ drone_gitlab_git_username }}
+{% endif %}
+{% if drone_gitlab_git_password is defined %}
+DRONE_GITLAB_GIT_PASSWORD={{ drone_gitlab_git_password }}
+{% endif %}
+DRONE_GITLAB_SKIP_VERIFY={{ drone_gitlab_skip_verify }}
+DRONE_GITLAB_PRIVATE_MODE={{ drone_gitlab_private_mode }}

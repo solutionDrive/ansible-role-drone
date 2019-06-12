@@ -30,4 +30,6 @@ DRONE_CACHE_TTY={{ drone_cache_tty }}
 {% include "remote_bitbucket.j2" %}
 {% elif drone_vcs == "github" %}
 {% include "remote_github.j2" %}
+{% elif drone_vcs == "gitlab" %}
+{% include "remote_gitlab.j2" %}
 {% endif %}
