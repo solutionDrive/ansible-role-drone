@@ -16,4 +16,4 @@ drone_public_external_port: 80
 
 drone_gitlab_url: 'https://gitlab.com'
 drone_gitlab_skip_verify: false
-drone_gitlab_private_mode: true
+drone_gitlab_private_mode: false
