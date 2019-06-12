@@ -13,3 +13,7 @@ drone_agent_count: 1
 drone_agent_debug: false
 drone_grpc_external_port: 9000
 drone_public_external_port: 80
+
+drone_gitlab_url: 'https://gitlab.com'
+drone_gitlab_skip_verify: false
+drone_gitlab_private_mode: true
